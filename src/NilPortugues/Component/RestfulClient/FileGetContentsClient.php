@@ -24,11 +24,11 @@ class FileGetContentsClient implements ClientInterface
             );
 
             if (!empty($headers['User-Agent'])) {
-             $requestData[] = $headers['User-Agent'];
+                $requestData['User-Agent'] = $headers['User-Agent'];
             }
 
             if (!empty($headers['Accept-Encoding'])) {
-                $requestData[] = $headers['Accept-Encoding'];
+                $requestData['Accept-Encoding'] = $headers['Accept-Encoding'];
             }
 
             //Prepare the request.
