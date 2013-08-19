@@ -20,7 +20,7 @@ class FileGetContentsClient implements ClientInterface
             $requestData = array
             (
                 'Host' => parse_url($url,PHP_URL_HOST),
-                'Referer' => $url,
+                'URL' => $url,
             );
 
             if (!empty($headers['User-Agent'])) {
@@ -79,7 +79,13 @@ class FileGetContentsClient implements ClientInterface
             $response['Request-Time'] = microtime(true) - $timeStart. ' seconds';
 
             //Return data.
-            return array('request' => $requestData, 'response' => $data, 'headers' => $response );
+            return array
+            (
+                'request' => $requestData,
+                'response' => $data,
+                'headers' => $response
+            );
+
         } else {
             throw new \NilPortugues\Component\RestfulClient\Exceptions\RestfulClientException("The provided URL: '{$url}', is not valid.");
         }

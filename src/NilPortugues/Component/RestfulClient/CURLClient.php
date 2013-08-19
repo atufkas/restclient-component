@@ -93,7 +93,12 @@ class CURLClient implements ClientInterface
             array_filter($response);
 
             //Return data.
-            return array('request' => $this->getRequestHeaders(),'response' => $info, 'headers' => $response );
+            return array
+            (
+                'request' => array_merge(array('URL'=>$url),$this->getRequestHeaders()),
+                'response' => $info,
+                'headers' => $response
+            );
 
         } else {
             throw new \NilPortugues\Component\RestfulClient\Exceptions\RestfulClientException("The provided URL: '{$url}', is not valid.");
@@ -107,7 +112,6 @@ class CURLClient implements ClientInterface
      */
     protected function getRequestHeaders()
     {
-        //R
         $requested = curl_getinfo($this->curl,CURLINFO_HEADER_OUT);
         $requested = explode("\r\n",$requested);
 

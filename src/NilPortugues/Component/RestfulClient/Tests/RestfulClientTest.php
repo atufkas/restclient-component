@@ -70,13 +70,16 @@ class RestfulClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->client->setKey('apiKey','ThisIsMySecretApiKeyValue');
 
-        $url = 'http://www.google.com';
+        $url = 'http://www.google.cat';
         $params = array('hello' => 'world');
 
         $return = $this->client->get($url,$params);
 
-        $this->assertTrue(strpos($return['request']['Referer'],'hello=world')!==false);
-        $this->assertTrue(strpos($return['request']['Referer'],'apiKey=ThisIsMySecretApiKeyValue')!==false);
+        $this->assertArrayHasKey('request',$return);
+        $this->assertArrayHasKey('URL',$return['request']);
+        $this->assertTrue(strpos($return['request']['URL'],'hello=world')!==false);
+        $this->assertTrue(strpos($return['request']['URL'],'apiKey=ThisIsMySecretApiKeyValue')!==false);
+
     }
 
     public function tearDown()
