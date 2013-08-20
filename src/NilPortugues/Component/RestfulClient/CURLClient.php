@@ -3,7 +3,7 @@ namespace NilPortugues\Component\RestfulClient;
 
 use NilPortugues\Component\RestfulClient\Interfaces\ClientInterface as ClientInterface;
 
-class CURLClient implements ClientInterface
+class CURLClient extends AbstractClient implements ClientInterface
 {
     protected $curl;
 
@@ -96,7 +96,7 @@ class CURLClient implements ClientInterface
             return array
             (
                 'request' => array_merge(array('URL'=>$url),$this->getRequestHeaders()),
-                'response' => $info,
+                'response' => $this->prepareResponse($info,$response),
                 'headers' => $response
             );
 

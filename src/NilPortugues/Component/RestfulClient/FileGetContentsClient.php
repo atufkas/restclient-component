@@ -3,7 +3,7 @@ namespace NilPortugues\Component\RestfulClient;
 
 use NilPortugues\Component\RestfulClient\Interfaces\ClientInterface as ClientInterface;
 
-class FileGetContentsClient implements ClientInterface
+class FileGetContentsClient extends AbstractClient implements ClientInterface
 {
     /**
      * @param  string                            $methodName
@@ -82,7 +82,7 @@ class FileGetContentsClient implements ClientInterface
             return array
             (
                 'request' => $requestData,
-                'response' => $data,
+                'response' => $this->prepareResponse($data,$response),
                 'headers' => $response
             );
 
