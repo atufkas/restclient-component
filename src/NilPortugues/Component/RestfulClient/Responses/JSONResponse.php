@@ -1,6 +1,8 @@
 <?php
 namespace NilPortugues\Component\RestfulClient\Responses;
 
+use  NilPortugues\Component\RestfulClient\Responses\RestfulResponseInterface as RestfulResponseInterface;
+
 class JSONResponse implements RestfulResponseInterface
 {
     /**
