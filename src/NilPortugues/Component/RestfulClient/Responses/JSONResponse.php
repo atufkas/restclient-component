@@ -1,7 +1,7 @@
 <?php
 namespace NilPortugues\Component\RestfulClient\Responses;
 
-class JSONResponse extends AbstractRestfulResponse
+class JSONResponse implements RestfulResponseInterface
 {
     /**
      *

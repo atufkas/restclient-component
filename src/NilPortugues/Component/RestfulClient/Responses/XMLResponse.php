@@ -1,7 +1,7 @@
 <?php
 namespace NilPortugues\Component\RestfulClient\Responses;
 
-class XMLResponse extends AbstractRestfulResponse
+class XMLResponse extends RestfulResponseInterface
 {
     /**
      * @param  string $response
