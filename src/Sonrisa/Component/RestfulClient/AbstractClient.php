@@ -5,7 +5,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace NilPortugues\Component\RestfulClient;
+namespace Sonrisa\Component\RestfulClient;
 
 abstract class AbstractClient
 {
@@ -23,11 +23,11 @@ abstract class AbstractClient
 
             switch ($type) {
                 case 'application/json':
-                    return \NilPortugues\Component\RestfulClient\Responses\JSONResponse::convert($data);
+                    return \Sonrisa\Component\RestfulClient\Responses\JSONResponse::convert($data);
                     break;
 
                 case 'application/xml':
-                    return \NilPortugues\Component\RestfulClient\Responses\XMLResponse::convert($data);
+                    return \Sonrisa\Component\RestfulClient\Responses\XMLResponse::convert($data);
                     break;
 
                 default:

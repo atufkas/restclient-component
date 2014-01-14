@@ -5,9 +5,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace NilPortugues\Component\RestfulClient\Tests;
+namespace Sonrisa\Component\RestfulClient\Tests;
 
-class CURLClientTest extends \PHPUnit_Framework_TestCase
+class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
 {
     protected $client;
     protected $params;
@@ -15,7 +15,7 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->client = new \NilPortugues\Component\RestfulClient\CURLClient();
+        $this->client = new \Sonrisa\Component\RestfulClient\FileGetContentsClient();
 
         $this->params = array();
         $this->headers = array();
@@ -28,7 +28,7 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
         $params = $this->params;
         $headers = $this->headers;
 
-        $this->setExpectedException('\NilPortugues\Component\RestfulClient\Exceptions\RestfulClientException');
+        $this->setExpectedException('\Sonrisa\Component\RestfulClient\Exceptions\RestfulClientException');
         $this->client->request($methodName,$url,$params,$headers);
     }
 
@@ -140,4 +140,5 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
     {
         $this->client = NULL;
     }
+
 }

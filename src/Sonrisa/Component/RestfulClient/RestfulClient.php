@@ -5,19 +5,19 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace NilPortugues\Component\RestfulClient;
+namespace Sonrisa\Component\RestfulClient;
 
-use \NilPortugues\Component\RestfulClient\Interfaces\RestfulClientInterface as RestfulClientInterface;
-use \NilPortugues\Component\RestfulClient\CURLClient as CURLClient;
-use \NilPortugues\Component\RestfulClient\FileGetContentsClient as FileGetContentsClient;
-use \NilPortugues\Component\RestfulClient\Exceptions\RestfulClientException as RestfulClientException;
+use \Sonrisa\Component\RestfulClient\Interfaces\RestfulClientInterface as RestfulClientInterface;
+use \Sonrisa\Component\RestfulClient\CURLClient as CURLClient;
+use \Sonrisa\Component\RestfulClient\FileGetContentsClient as FileGetContentsClient;
+use \Sonrisa\Component\RestfulClient\Exceptions\RestfulClientException as RestfulClientException;
 
 class RestfulClient implements RestfulClientInterface
 {
     /**
      * Holds the instance of the Client we'll be using to fire the requests.
      *
-     * @var \NilPortugues\Component\RestfulClient\Interfaces\ClientInterface.
+     * @var \Sonrisa\Component\RestfulClient\Interfaces\ClientInterface.
      */
     protected $client;
 

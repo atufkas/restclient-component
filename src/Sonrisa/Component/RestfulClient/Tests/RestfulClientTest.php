@@ -5,7 +5,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace NilPortugues\Component\RestfulClient\Tests;
+namespace Sonrisa\Component\RestfulClient\Tests;
 
 class RestfulClientTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,7 +13,7 @@ class RestfulClientTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->client = new \NilPortugues\Component\RestfulClient\RestfulClient();
+        $this->client = new \Sonrisa\Component\RestfulClient\RestfulClient();
     }
 
     public function testSetAcceptEncoding()
@@ -42,7 +42,7 @@ class RestfulClientTest extends \PHPUnit_Framework_TestCase
 
     public function testSetInvalidAcceptLanguage()
     {
-        $this->setExpectedException('\NilPortugues\Component\RestfulClient\Exceptions\RestfulClientException');
+        $this->setExpectedException('\Sonrisa\Component\RestfulClient\Exceptions\RestfulClientException');
         $this->client->setAcceptLanguage('');
     }
 

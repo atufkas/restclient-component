@@ -13,7 +13,7 @@
         >
     <testsuites>
         <testsuite name="Test Suite">
-            <directory>./src/NilPortugues/Component/RestfulClient/Tests</directory>
+            <directory>./src/Sonrisa/Component/RestfulClient/Tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>

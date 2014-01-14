@@ -5,7 +5,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace NilPortugues\Component\RestfulClient\Interfaces;
+namespace Sonrisa\Component\RestfulClient\Interfaces;
 
 interface RestfulClientInterface
 {
@@ -13,7 +13,7 @@ interface RestfulClientInterface
      * Sets the default response language.
      *
      * @param  string                                                                  $lang
-     * @return \NilPortugues\Component\RestfulClient\Interfaces\RestfulClientInterface
+     * @return \Sonrisa\Component\RestfulClient\Interfaces\RestfulClientInterface
      */
     public function setAcceptLanguage($lang = 'en');
 
@@ -21,7 +21,7 @@ interface RestfulClientInterface
      * Sets the HTTP header value Accept-Encoding. Default is gzip.
      *
      * @param  string                                                                  $value
-     * @return \NilPortugues\Component\RestfulClient\Interfaces\RestfulClientInterface
+     * @return \Sonrisa\Component\RestfulClient\Interfaces\RestfulClientInterface
      */
     public function setAcceptEncoding($value = 'gzip');
 
@@ -29,7 +29,7 @@ interface RestfulClientInterface
      * (Optional) Sets a User-Agent in every request.
      *
      * @param $agentString
-     * @return \NilPortugues\Component\RestfulClient\Interfaces\RestfulClientInterface
+     * @return \Sonrisa\Component\RestfulClient\Interfaces\RestfulClientInterface
      */
     public function setUserAgent($agentString);
 
@@ -38,7 +38,7 @@ interface RestfulClientInterface
      *
      * @param  string                                                                  $keyName
      * @param  string                                                                  $value
-     * @return \NilPortugues\Component\RestfulClient\Interfaces\RestfulClientInterface
+     * @return \Sonrisa\Component\RestfulClient\Interfaces\RestfulClientInterface
      */
     public function setKey($keyName,$value);
 

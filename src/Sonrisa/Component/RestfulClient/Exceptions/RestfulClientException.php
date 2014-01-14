@@ -6,7 +6,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NilPortugues\Component\RestfulClient\Exceptions;
+namespace Sonrisa\Component\RestfulClient\Exceptions;
 
 class RestfulClientException extends \Exception
 {

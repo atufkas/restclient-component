@@ -5,9 +5,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace NilPortugues\Component\RestfulClient;
+namespace Sonrisa\Component\RestfulClient;
 
-use NilPortugues\Component\RestfulClient\Interfaces\ClientInterface as ClientInterface;
+use Sonrisa\Component\RestfulClient\Interfaces\ClientInterface as ClientInterface;
 
 class CURLClient extends AbstractClient implements ClientInterface
 {
@@ -107,7 +107,7 @@ class CURLClient extends AbstractClient implements ClientInterface
             );
 
         } else {
-            throw new \NilPortugues\Component\RestfulClient\Exceptions\RestfulClientException("The provided URL: '{$url}', is not valid.");
+            throw new \Sonrisa\Component\RestfulClient\Exceptions\RestfulClientException("The provided URL: '{$url}', is not valid.");
         }
     }
 
