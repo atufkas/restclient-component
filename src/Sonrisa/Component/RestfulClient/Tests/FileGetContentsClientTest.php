@@ -48,7 +48,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidPOSTRequest()
     {
         $methodName = 'POST';
-        $url = 'https://stream.twitter.com/1.1/statuses/filter.json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -61,7 +61,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidPUTRequest()
     {
         $methodName = 'PUT';
-        $url = 'https://stream.twitter.com/1.1/statuses/filter.json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -74,7 +74,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidPATCHRequest()
     {
         $methodName = 'PATCH';
-        $url = 'https://stream.twitter.com/1.1/statuses/filter.json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -87,7 +87,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidDELETERequest()
     {
         $methodName = 'DELETE';
-        $url = 'https://stream.twitter.com/1.1/statuses/filter.json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -100,7 +100,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidHEADRequest()
     {
         $methodName = 'HEAD';
-        $url = 'https://stream.twitter.com/1.1/statuses/filter.json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -113,7 +113,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidOPTIONSRequest()
     {
         $methodName = 'OPTIONS';
-        $url = 'https://stream.twitter.com/1.1/statuses/filter.json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -126,7 +126,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidCUSTOMRequest()
     {
         $methodName = 'SONRISACMS';
-        $url = 'https://stream.twitter.com/1.1/statuses/filter.json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
