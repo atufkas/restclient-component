@@ -7,3 +7,4 @@ php:
 before_script:
   ## Install Composer
   - composer install
+  - echo "allow_url_fopen = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
