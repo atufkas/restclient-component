@@ -33,7 +33,7 @@ class RestfulClient implements RestfulClientInterface
      *
      * @var array
      */
-    protected $apiKey;
+    protected $apiKey = array();
 
     /**
      * Picks which client should be used.
