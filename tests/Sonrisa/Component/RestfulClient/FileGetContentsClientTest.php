@@ -35,7 +35,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidGETRequest()
     {
         $methodName = 'GET';
-        $url = 'https://api.twitter.com/1.1/statuses/mentions_timeline.json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1';
         $params = array('count'=>2 );
         $headers = $this->headers;
 
@@ -48,7 +48,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidPOSTRequest()
     {
         $methodName = 'POST';
-        $url = 'http://api.duckduckgo.com/?q=SonrisaCMS&format=json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -61,7 +61,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidPUTRequest()
     {
         $methodName = 'PUT';
-        $url = 'http://api.duckduckgo.com/?q=SonrisaCMS&format=json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -74,7 +74,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidPATCHRequest()
     {
         $methodName = 'PATCH';
-        $url = 'http://api.duckduckgo.com/?q=SonrisaCMS&format=json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -87,7 +87,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidDELETERequest()
     {
         $methodName = 'DELETE';
-        $url = 'http://api.duckduckgo.com/?q=SonrisaCMS&format=json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -100,7 +100,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidHEADRequest()
     {
         $methodName = 'HEAD';
-        $url = 'http://api.duckduckgo.com/?q=SonrisaCMS&format=json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -113,7 +113,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidOPTIONSRequest()
     {
         $methodName = 'OPTIONS';
-        $url = 'http://api.duckduckgo.com/?q=SonrisaCMS&format=json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
@@ -126,7 +126,7 @@ class FileGetContentsClientTest extends \PHPUnit_Framework_TestCase
     public function testValidCUSTOMRequest()
     {
         $methodName = 'SONRISACMS';
-        $url = 'http://api.duckduckgo.com/?q=SonrisaCMS&format=json';
+        $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1';
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 

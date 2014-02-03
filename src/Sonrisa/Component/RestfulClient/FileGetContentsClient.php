@@ -67,33 +67,42 @@ class FileGetContentsClient extends AbstractClient implements ClientInterface
             $timeStart = microtime(true);
             $data = file_get_contents($url, false, stream_context_create(array('http' => $request)));
 
-            //Reads the response HTTP header and returns its contents in an array.
-            $response = array
-            (
-                'Protocol' => trim(substr($http_response_header[0],0,8)),
-                'Status' => trim(substr($http_response_header[0],8)),
-            );
-            foreach ($http_response_header as $value) {
-                $k = substr($value,0,strpos($value, ':'));
-                $v = trim(substr(strstr($value, ':'),1));
+            if(!empty($http_response_header))
+            {
+                $status = explode(' ',trim(substr($http_response_header[0],8)));
 
-                if ( !empty($k) && !empty($v) ) {
-                    $k = str_replace(' ','-',ucwords(str_replace('-',' ',$k)));
-                    $response[$k] = $v;
+                //Reads the response HTTP header and returns its contents in an array.
+                $response = array
+                (
+                    'Protocol' => trim(substr($http_response_header[0],0,8)),
+                    'Status' => trim( $status[0]),
+                );
+                foreach ($http_response_header as $value) {
+                    $k = substr($value,0,strpos($value, ':'));
+                    $v = trim(substr(strstr($value, ':'),1));
+
+                    if ( !empty($k) && !empty($v) ) {
+                        $k = str_replace(' ','-',ucwords(str_replace('-',' ',$k)));
+                        $response[$k] = $v;
+                    }
                 }
-            }
-            $response['Request-Time'] = microtime(true) - $timeStart. ' seconds';
+                $response['Request-Time'] = microtime(true) - $timeStart. ' seconds';
 
-            //Return data.
-            return array
-            (
-                'request' => $requestData,
-                'response' => $this->prepareResponse($data,$response),
-                'headers' => $response
-            );
+                //Return data.
+                return array
+                (
+                    'request' => $requestData,
+                    'response' => $this->prepareResponse($data,$response),
+                    'headers' => $response
+                );
+            }
+            else
+            {
+                throw new Exceptions\RestfulClientException("The provided URL: '{$url}', is not valid.");
+            }
 
         } else {
-            throw new \Sonrisa\Component\RestfulClient\Exceptions\RestfulClientException("The provided URL: '{$url}', is not valid.");
+            throw new Exceptions\RestfulClientException("The provided URL: '{$url}', is not valid.");
         }
     }
 

@@ -23,11 +23,17 @@ abstract class AbstractClient
 
             switch ($type) {
                 case 'application/json':
-                    return \Sonrisa\Component\RestfulClient\Responses\JSONResponse::convert($data);
+                    $data = Responses\JSONResponse::convert($data);
+                    $status = explode(' ',$data['headers']['Status']);
+                    $data['headers']['Status'] = $status[0];
+                    return $data;
                     break;
 
                 case 'application/xml':
-                    return \Sonrisa\Component\RestfulClient\Responses\XMLResponse::convert($data);
+                    $data = Responses\XMLResponse::convert($data);
+                    $status = explode(' ',$data['headers']['Status']);
+                    $data['headers']['Status'] = $status[0];
+                    return $data;
                     break;
 
                 default:
@@ -39,10 +45,12 @@ abstract class AbstractClient
                     }
                     //Or return RAW data.
                     else {
+
                         return $data;
                     }
                     break;
             }
+
         } else {
             return $data;
         }
