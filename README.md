@@ -147,7 +147,7 @@ array(3) {
 
 - Allow adding extra headers using $this->setHeader('name','value');
 - For file get contents, follow 301 and 302 codes and throw request again at the returned URL.
-- Further testing for POST HTTP Method for both for curl and file_get_contents based client classes.
+- Testing for multipart/data both for curl and file_get_contents based client classes.
 
 ## 5. Author
 Nil Portugués Calderó
