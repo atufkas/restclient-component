@@ -27,7 +27,7 @@ Add the following to your `composer.json` file :
 Usage is really straight-forward. Example provided below.
 
 ### 3.1 - Client Request
-```
+```php
 <?php
 
 use \Sonrisa\Component\RestfulClient\RestfulClient;
@@ -66,7 +66,6 @@ $response = $client->options('http://api.duckduckgo.com/?q=DuckDuckGo&format=jso
 
 //Send a CUSTOM Request
 $response = $client->other('X-SonrisaCMS-Header','http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1',$params);
-
 ```
 
 ### 3.2 - Client Response
@@ -74,12 +73,13 @@ Response is always returned an key-value array, where keys names are the names o
 
 The array will always contain 3 main keys:
 
- - $response['request'] : holding the request HTTP Headers build by the class
- - $response['response'] : holding all data returned by the queried URL
- - $response['headers'] : holding the response's HTTP Headers.
+ - `$response['request']` : holding the request HTTP Headers build by the class
+ - `$response['response']` : holding all data returned by the queried URL
+ - `$response['headers']` : holding the response's HTTP Headers.
 
 Response example:
-```<?php
+```php
+<?php
 
 //var_dump($response);
 array(3) {
@@ -133,8 +133,6 @@ array(3) {
     string(16) "0.237205 seconds"
   }
 }
-
-
 ```
 
 
