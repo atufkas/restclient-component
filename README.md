@@ -1,5 +1,8 @@
 # [![Build Status](https://travis-ci.org/sonrisa/restclient-component.png?branch=master)](https://travis-ci.org/sonrisa/restclient-component) Restful Client Component
 
+The Restful Client Component allows communication with external APIs using an easy interface. 
+
+Uses CURL to fire the requests. If CURL is not available, it will try to fall back using file_get_contents instead.
 
 ## 1. Installation
 
