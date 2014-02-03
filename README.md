@@ -32,40 +32,47 @@ Usage is really straight-forward. Example provided below.
 
 use \Sonrisa\Component\RestfulClient\RestfulClient;
 
+$url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1';
+
 $client = new RestfulClient();
 
-//(Optional) Set some headers
+// (Optional) Set some headers
 $client->setAcceptLanguage('ca,en;q=0.8,es;q=0.6')
        ->setAcceptEncoding('gzip,deflate,sdch')
        ->setUserAgent('Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36');
 
-//(Optional) Add the API key and the username for each request the $client does
+// (Optional) Add the API key and the username for each request
+// Will result in: http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1&api=$apiKey&username=$username
 $client->setKey('api',$apiKey);
 $client->setKey('username',$username);
 
-//Send a GET Request
-$response = $client->get('http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1',$params);
+// Sending parameters is optional,
+// so $params is actually an optional argument.
+$params = array();
 
-//Send a POST Request
-$response = $client->post('http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1',$params);
+// Send a GET Request:
+$response = $client->get($url,$params);
 
-//Send a PUT Request
-$response = $client->put('http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1',$params);
+// Send a POST Request
+$response = $client->post( $url ,$params);
 
-//Send a PATCH Request
-$response = $client->patch('http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1',$params);
+// Send a PUT Request
+$response = $client->put( $url ,$params);
 
-//Send a DELETE Request
-$response = $client->delete('http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1',$params);
+// Send a PATCH Request
+$response = $client->patch( $url ,$params);
 
-//Send a HEAD Request
-$response = $client->head('http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1',$params);
+// Send a DELETE Request
+$response = $client->delete( $url ,$params);
 
-//Send a OPTIONS Request
-$response = $client->options('http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1',$params);
+// Send a HEAD Request
+$response = $client->head( $url ,$params);
 
-//Send a CUSTOM Request
-$response = $client->other('X-SonrisaCMS-Header','http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1',$params);
+// Send a OPTIONS Request
+$response = $client->options( $url ,$params);
+
+// Send a CUSTOM Request
+$response = $client->other('X-SonrisaCMS-Header', $url ,$params);
 ```
 
 ### 3.2 - Client Response
