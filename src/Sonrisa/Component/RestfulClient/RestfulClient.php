@@ -83,7 +83,8 @@ class RestfulClient implements RestfulClientInterface
     /**
      * Sets the default response language.
      *
-     * @param  string        $lang
+     * @param  string $lang
+     * @throws Exceptions\RestfulClientException
      * @return RestfulClient
      */
     public function setAcceptLanguage($lang = 'en')
@@ -129,15 +130,10 @@ class RestfulClient implements RestfulClientInterface
      * @param  string                 $keyName
      * @param  string                 $value
      * @return RestfulClient
-     * @throws RestfulClientException
      */
     public function setKey($keyName,$value)
     {
-        if ( 0 == strlen($keyName) ) {
-            throw new RestfulClientException('The API Key field name cannot be empty or NULL');
-        }
-
-        $this->apiKey = array($keyName => $value);
+        $this->apiKey = array_merge($this->apiKey,array($keyName => $value));
 
         return $this;
     }

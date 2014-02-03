@@ -27,5 +27,5 @@
             "Sonrisa\\Component\\RestfulClient":"src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }

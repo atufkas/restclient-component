@@ -38,8 +38,9 @@ class CURLClient extends AbstractClient implements ClientInterface
     /**
      * @param  string $methodName
      * @param  string $url
-     * @param  array  $params
-     * @param  array  $headers
+     * @param  array $params
+     * @param  array $headers
+     * @throws Exceptions\RestfulClientException
      * @return mixed
      */
     public function request($methodName,$url,array $params=array(),array $headers=array())
