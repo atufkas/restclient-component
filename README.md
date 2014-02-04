@@ -16,6 +16,7 @@ Add the following to your `composer.json` file :
 - $this->setAcceptLanguage($lang = 'en');
 - $this->setAcceptEncoding($value = 'gzip');
 - $this->setUserAgent($agentString);
+- $this->setBasicAuthorization($username,$password);
 - $this->setKey($keyName,$value);
 - $this->get($url,array $params=array());
 - $this->post($url,array $params=array());
@@ -148,8 +149,12 @@ array(3) {
 
 ## 4. To do
 
+### Better methods
 - Allow adding extra headers using $this->setHeader('name','value');
 - For file get contents, follow 301 and 302 codes and throw request again at the returned URL.
+
+### Better testing
+- Create a better test case for PHP5.4 and above, using [PHP as a server](http://www.php.net/manual/en/features.commandline.webserver.php) waiting for requests and returning responses.
 - Testing for multipart/data both for curl and file_get_contents based client classes.
 
 ## 5. Author

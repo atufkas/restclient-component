@@ -125,6 +125,21 @@ class RestfulClient implements RestfulClientInterface
     }
 
     /**
+     * (Optional) Sets a Basic Authorization in every request.
+     *
+     * @param $username
+     * @param $password     
+     * @return RestfulClient
+     */
+    public function setBasicAuthorization($username,$password)
+    {
+        $this->headers['Authorization'] = "Basic " . base64_encode("$username:$password");
+
+        return $this;         
+    }
+
+
+    /**
      * (Optional) It will set the API's key or token value and will be send in every client request.
      *
      * @param  string                 $keyName
