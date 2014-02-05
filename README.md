@@ -4,13 +4,23 @@ The Restful Client Component allows communication with external APIs using an ea
 
 Uses CURL to fire the requests. If CURL is not available, it will try to fall back using file_get_contents instead.
 
+* [1.Installation](#block1)
+* [2. Methods available](#block2)
+* [3. Usage](#block3)
+    * [3.1 - Client Request](#block3.1)
+    * [3.2 - Client Response](#block3.2)
+* [4. To do](#block4)
+* [5. Author](#block5)
+
+<a name="block1"></a>
 ## 1. Installation
 
 Add the following to your `composer.json` file :
 
-```
+```js
 "sonrisa/restclient-component":"dev-master"
 ```
+<a name="block2"></a>
 ## 2. Methods available
 
 - $this->setAcceptLanguage($lang = 'en');
@@ -27,9 +37,11 @@ Add the following to your `composer.json` file :
 - $this->head($url,array $params=array());
 - $this->other($methodName,$url,array $params=array());
 
+<a name="block3"></a>
 ## 3. Usage
 Usage is really straight-forward. Example provided below.
 
+<a name="block3.1"></a>
 ### 3.1 - Client Request
 ```php
 <?php
@@ -78,7 +90,7 @@ $response = $client->options( $url ,$params);
 // Send a CUSTOM Request
 $response = $client->other('X-SonrisaCMS-Header', $url ,$params);
 ```
-
+<a name="block3.2"></a>
 ### 3.2 - Client Response
 Response is always returned an key-value array, where keys names are the names of the headers returned in the response.
 
@@ -146,7 +158,7 @@ array(3) {
 }
 ```
 
-
+<a name="block4"></a>
 ## 4. To do
 
 ### Better methods
@@ -157,6 +169,7 @@ array(3) {
 - Create a better test case for PHP5.4 and above, using [PHP as a server](http://www.php.net/manual/en/features.commandline.webserver.php) waiting for requests and returning responses.
 - Testing for multipart/data both for curl and file_get_contents based client classes.
 
+<a name="block5"></a>
 ## 5. Author
 Nil Portugués Calderó
  - <contact@nilportugues.com>
