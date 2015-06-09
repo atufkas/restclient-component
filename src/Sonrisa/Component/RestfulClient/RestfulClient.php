@@ -160,7 +160,7 @@ class RestfulClient implements RestfulClientInterface
      */
     public function setBasicAuthorization($username,$password)
     {
-        $this->setHeader('Authorization', base64_encode("$username:$password"));
+        $this->setHeader('Authorization', "Basic " . base64_encode("$username:$password"));
 
         return $this;
     }
