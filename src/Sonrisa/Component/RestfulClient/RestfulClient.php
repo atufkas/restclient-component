@@ -81,6 +81,33 @@ class RestfulClient implements RestfulClientInterface
     }
 
     /**
+     * Sets a custom header field.
+     *
+     * @param $token
+     * @param string $type
+     * @return RestfulClient
+     */
+    public function setHeader($field, $value)
+    {
+        $this->headers[ $field ] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Sets multiple custom header fields identified by array keys and values
+     *
+     * @param $headers
+     */
+    public function setHeaders($headers)
+    {
+        // Note: We could of course also do an array_merge($this->headers, $headers)
+        foreach ($headers as $key => $value) {
+            $this->setHeader($key, $value);
+        }
+    }
+
+    /**
      * Sets the default response language.
      *
      * @param  string $lang
@@ -93,7 +120,7 @@ class RestfulClient implements RestfulClientInterface
             throw new RestfulClientException('The language code cannot be empty or NULL');
         }
 
-        $this->headers['Accept-language'] = $lang;
+        $this->setHeader('Accept-language', $lang);
 
         return $this;
     }
@@ -106,7 +133,7 @@ class RestfulClient implements RestfulClientInterface
      */
     public function setAcceptEncoding($value = 'compress, gzip')
     {
-        $this->headers['Accept-Encoding'] = $value;
+        $this->setHeader('Accept-Encoding', $value);
 
         return $this;
     }
@@ -119,7 +146,7 @@ class RestfulClient implements RestfulClientInterface
      */
     public function setUserAgent($agentString)
     {
-        $this->headers['User-Agent'] = $agentString;
+        $this->setHeader('User-Agent', $agentString);
 
         return $this;
     }
@@ -128,16 +155,15 @@ class RestfulClient implements RestfulClientInterface
      * (Optional) Sets a Basic Authorization in every request.
      *
      * @param $username
-     * @param $password     
+     * @param $password
      * @return RestfulClient
      */
     public function setBasicAuthorization($username,$password)
     {
-        $this->headers['Authorization'] = "Basic " . base64_encode("$username:$password");
+        $this->setHeader('Authorization', base64_encode("$username:$password"));
 
-        return $this;         
+        return $this;
     }
-
 
     /**
      * (Optional) It will set the API's key or token value and will be send in every client request.

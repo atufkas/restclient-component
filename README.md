@@ -23,6 +23,9 @@ Add the following to your `composer.json` file :
 <a name="block2"></a>
 ## 2. Methods available
 
+- $this->setHeader($field,$value);
+- $this->setHeaders($headers);
+- $this->setAcceptLanguage($lang = 'en');
 - $this->setAcceptLanguage($lang = 'en');
 - $this->setAcceptEncoding($value = 'gzip');
 - $this->setUserAgent($agentString);
@@ -52,7 +55,10 @@ $url = 'http://api.duckduckgo.com/?q=DuckDuckGo&format=json&pretty=1';
 
 $client = new RestfulClient();
 
-// (Optional) Set some headers
+// (Optional) Directly set a header field
+$client->setHeader('Content-Type', 'application/json');
+
+// (Optional) Set some headers with convenient functions
 $client->setAcceptLanguage('ca,en;q=0.8,es;q=0.6')
        ->setAcceptEncoding('gzip,deflate,sdch')
        ->setUserAgent('Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36');
@@ -162,7 +168,6 @@ array(3) {
 ## 4. To do
 
 ### Better methods
-- Allow adding extra headers using $this->setHeader('name','value');
 - For file get contents, follow 301 and 302 codes and throw request again at the returned URL.
 
 ### Better testing
