@@ -26,7 +26,6 @@ Add the following to your `composer.json` file :
 - $this->setHeader($field,$value);
 - $this->setHeaders($headers);
 - $this->setAcceptLanguage($lang = 'en');
-- $this->setAcceptLanguage($lang = 'en');
 - $this->setAcceptEncoding($value = 'gzip');
 - $this->setUserAgent($agentString);
 - $this->setBasicAuthorization($username,$password);
