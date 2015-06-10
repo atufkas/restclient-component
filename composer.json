@@ -1,8 +1,8 @@
 {
     "name":"sonrisa/restclient-component",
-    "description":"The Restful Client component for Sonrisa Framework. Build for PHP5.3 and above.",
+    "description":"Lightweight Restful Client component. Build for PHP5.4 and above.",
     "type":"library",
-    "homepage":"http://sonrisacms.com",
+    "homepage":"http://nilportugues.com",
     "license":"MIT",
     "authors":
     [
