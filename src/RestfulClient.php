@@ -42,9 +42,9 @@ class RestfulClient implements RestfulClientInterface
      */
     public function __construct()
     {
-        if ( $this->isCurlAvailable() ) {
+        if ($this->isCurlAvailable()) {
             $this->client = new CURLClient();
-        } elseif ( $this->isFileGetContentsExternalAvailable() ) {
+        } elseif ($this->isFileGetContentsExternalAvailable()) {
             $this->client = new FileGetContentsClient();
         } else {
             throw new RestfulClientException('Your server does not allow connections to external sources.');
@@ -73,7 +73,7 @@ class RestfulClient implements RestfulClientInterface
      */
     protected function isFileGetContentsExternalAvailable()
     {
-        if ( ini_get('allow_url_fopen') ) {
+        if (ini_get('allow_url_fopen')) {
             return true;
         }
 
@@ -116,7 +116,7 @@ class RestfulClient implements RestfulClientInterface
      */
     public function setAcceptLanguage($lang = 'en')
     {
-        if ( 0 == strlen($lang) ) {
+        if (0 == strlen($lang)) {
             throw new RestfulClientException('The language code cannot be empty or NULL');
         }
 
@@ -158,7 +158,7 @@ class RestfulClient implements RestfulClientInterface
      * @param $password
      * @return RestfulClient
      */
-    public function setBasicAuthorization($username,$password)
+    public function setBasicAuthorization($username, $password)
     {
         $this->setHeader('Authorization', "Basic " . base64_encode("$username:$password"));
 
@@ -172,9 +172,9 @@ class RestfulClient implements RestfulClientInterface
      * @param  string                 $value
      * @return RestfulClient
      */
-    public function setKey($keyName,$value)
+    public function setKey($keyName, $value)
     {
-        $this->apiKey = array_merge($this->apiKey,array($keyName => $value));
+        $this->apiKey = array_merge($this->apiKey, array($keyName => $value));
 
         return $this;
     }
@@ -186,11 +186,11 @@ class RestfulClient implements RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function get($url,array $params=array())
+    public function get($url, array $params=array())
     {
-        $params = array_merge($this->apiKey,$params);
+        $params = array_merge($this->apiKey, $params);
 
-        return $this->client->request('GET',$url,$params,$this->headers);
+        return $this->client->request('GET', $url, $params, $this->headers);
     }
 
     /**
@@ -200,11 +200,11 @@ class RestfulClient implements RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function post($url,array $params=array())
+    public function post($url, array $params=array())
     {
-        $params = array_merge($this->apiKey,$params);
+        $params = array_merge($this->apiKey, $params);
 
-        return $this->client->request('POST',$url,$params,$this->headers);
+        return $this->client->request('POST', $url, $params, $this->headers);
     }
 
     /**
@@ -214,11 +214,11 @@ class RestfulClient implements RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function put($url,array $params=array())
+    public function put($url, array $params=array())
     {
-        $params = array_merge($this->apiKey,$params);
+        $params = array_merge($this->apiKey, $params);
 
-        return $this->client->request('PUT',$url,$params,$this->headers);
+        return $this->client->request('PUT', $url, $params, $this->headers);
     }
 
     /**
@@ -228,11 +228,11 @@ class RestfulClient implements RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function patch($url,array $params=array())
+    public function patch($url, array $params=array())
     {
-        $params = array_merge($this->apiKey,$params);
+        $params = array_merge($this->apiKey, $params);
 
-        return $this->client->request('PATCH',$url,$params,$this->headers);
+        return $this->client->request('PATCH', $url, $params, $this->headers);
     }
 
     /**
@@ -242,11 +242,11 @@ class RestfulClient implements RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function delete($url,array $params=array())
+    public function delete($url, array $params=array())
     {
-        $params = array_merge($this->apiKey,$params);
+        $params = array_merge($this->apiKey, $params);
 
-        return $this->client->request('DELETE',$url,$params,$this->headers);
+        return $this->client->request('DELETE', $url, $params, $this->headers);
     }
 
     /**
@@ -256,11 +256,11 @@ class RestfulClient implements RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function options($url,array $params=array())
+    public function options($url, array $params=array())
     {
-        $params = array_merge($this->apiKey,$params);
+        $params = array_merge($this->apiKey, $params);
 
-        return $this->client->request('OPTIONS',$url,$params,$this->headers);
+        return $this->client->request('OPTIONS', $url, $params, $this->headers);
     }
 
     /**
@@ -270,11 +270,11 @@ class RestfulClient implements RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function head($url,array $params=array())
+    public function head($url, array $params=array())
     {
-        $params = array_merge($this->apiKey,$params);
+        $params = array_merge($this->apiKey, $params);
 
-        return $this->client->request('HEAD',$url,$params,$this->headers);
+        return $this->client->request('HEAD', $url, $params, $this->headers);
     }
 
     /**
@@ -285,10 +285,10 @@ class RestfulClient implements RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function other($methodName,$url,array $params=array())
+    public function other($methodName, $url, array $params=array())
     {
-        $params = array_merge($this->apiKey,$params);
+        $params = array_merge($this->apiKey, $params);
 
-        return $this->client->request($methodName,$url,$params,$this->headers);
+        return $this->client->request($methodName, $url, $params, $this->headers);
     }
 }

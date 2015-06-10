@@ -15,10 +15,10 @@ abstract class AbstractClient
      * @param  array $responseHeaders
      * @return type
      */
-    protected function prepareResponse($data,array &$responseHeaders)
+    protected function prepareResponse($data, array &$responseHeaders)
     {
         if (!empty($responseHeaders['Content-Type'])) {
-            $type = explode(';',$responseHeaders['Content-Type']);
+            $type = explode(';', $responseHeaders['Content-Type']);
             $type = trim(strtolower($type[0]));
 
             switch ($type) {
@@ -41,7 +41,7 @@ abstract class AbstractClient
                     // as a "feature".
                     //
                     if (isset($data['headers']['Status'])) {
-                        $status = explode(' ',$data['headers']['Status']);
+                        $status = explode(' ', $data['headers']['Status']);
                         $data['headers']['Status'] = $status[0];
                     }
 
@@ -53,7 +53,7 @@ abstract class AbstractClient
 
                     // NOTE: (see comment above for case "application/json")
                     if (isset($data['headers']['Status'])) {
-                        $status = explode(' ',$data['headers']['Status']);
+                        $status = explode(' ', $data['headers']['Status']);
                         $data['headers']['Status'] = $status[0];
                     }
 
@@ -69,12 +69,10 @@ abstract class AbstractClient
                     }
                     //Or return RAW data.
                     else {
-
                         return $data;
                     }
                     break;
             }
-
         } else {
             return $data;
         }

@@ -1,4 +1,6 @@
 <?php
+namespace Sonrisa\Test\Component\RestfulClient;
+
 /*
  * Author: Nil Portugués Calderó <contact@nilportugues.com>
  *
@@ -47,7 +49,7 @@ class RestfulClientTest extends \PHPUnit_Framework_TestCase
 
         $array = $property->getValue($this->client);
 
-        foreach($headers as $key => $value) {
+        foreach ($headers as $key => $value) {
             $this->assertEquals($value, $array[$key]);
         }
     }
@@ -61,7 +63,7 @@ class RestfulClientTest extends \PHPUnit_Framework_TestCase
         $property->setAccessible(true);
 
         $array = $property->getValue($this->client);
-        $this->assertEquals('gzip;q=1.0, identity; q=0.5, *;q=0',$array['Accept-Encoding']);
+        $this->assertEquals('gzip;q=1.0, identity; q=0.5, *;q=0', $array['Accept-Encoding']);
     }
 
     public function testSetValidAcceptLanguage()
@@ -73,7 +75,7 @@ class RestfulClientTest extends \PHPUnit_Framework_TestCase
         $property->setAccessible(true);
 
         $array = $property->getValue($this->client);
-        $this->assertEquals('en',$array['Accept-language']);
+        $this->assertEquals('en', $array['Accept-language']);
     }
 
     public function testSetInvalidAcceptLanguage()
@@ -91,12 +93,12 @@ class RestfulClientTest extends \PHPUnit_Framework_TestCase
         $property->setAccessible(true);
 
         $array = $property->getValue($this->client);
-        $this->assertEquals('My Browser User Agent',$array['User-Agent']);
+        $this->assertEquals('My Browser User Agent', $array['User-Agent']);
     }
 
     public function testSetApiKey()
     {
-        $this->client->setKey('apiKey','ThisIsMySecretApiKeyValue');
+        $this->client->setKey('apiKey', 'ThisIsMySecretApiKeyValue');
 
         $reflection = new \ReflectionClass($this->client);
         $property = $reflection->getProperty("apiKey");
@@ -104,28 +106,27 @@ class RestfulClientTest extends \PHPUnit_Framework_TestCase
 
         $array = $property->getValue($this->client);
 
-        $this->assertArrayHasKey('apiKey',$array);
-        $this->assertEquals('ThisIsMySecretApiKeyValue',$array['apiKey']);
+        $this->assertArrayHasKey('apiKey', $array);
+        $this->assertEquals('ThisIsMySecretApiKeyValue', $array['apiKey']);
     }
 
     public function testSetApiKeyIsSent()
     {
-        $this->client->setKey('apiKey','ThisIsMySecretApiKeyValue');
+        $this->client->setKey('apiKey', 'ThisIsMySecretApiKeyValue');
 
         $url = 'http://www.google.cat';
         $params = array('hello' => 'world');
 
-        $return = $this->client->get($url,$params);
+        $return = $this->client->get($url, $params);
 
-        $this->assertArrayHasKey('request',$return);
-        $this->assertArrayHasKey('URL',$return['request']);
-        $this->assertTrue(strpos($return['request']['URL'],'hello=world')!==false);
-        $this->assertTrue(strpos($return['request']['URL'],'apiKey=ThisIsMySecretApiKeyValue')!==false);
-
+        $this->assertArrayHasKey('request', $return);
+        $this->assertArrayHasKey('URL', $return['request']);
+        $this->assertTrue(strpos($return['request']['URL'], 'hello=world')!==false);
+        $this->assertTrue(strpos($return['request']['URL'], 'apiKey=ThisIsMySecretApiKeyValue')!==false);
     }
 
     public function tearDown()
     {
-        $this->client = NULL;
+        $this->client = null;
     }
 }

@@ -19,7 +19,7 @@ class XMLResponse implements RestfulResponseInterface
     {
         $xml = new \XMLReader();
 
-        if ( $xml->XML($response, NULL, LIBXML_DTDVALID) ) {
+        if ($xml->XML($response, null, LIBXML_DTDVALID)) {
             $xmlList = simplexml_load_string($response);
 
             $data = array();
@@ -40,13 +40,13 @@ class XMLResponse implements RestfulResponseInterface
      * @param  type              $arr Target array where the values will be stored
      * @return type
      */
-    protected static function convertXmlObjToArr( \SimpleXMLElement $obj, &$arr )
+    protected static function convertXmlObjToArr(\SimpleXMLElement $obj, &$arr)
     {
         $children = $obj->children();
         $executed = false;
         foreach ($children as $index => $node) {
-            if ( array_key_exists( $index, (array) $arr ) ) {
-                if (array_key_exists( 0, $arr[$index] ) ) {
+            if (array_key_exists($index, (array) $arr)) {
+                if (array_key_exists(0, $arr[$index])) {
                     $i = count($arr[$index]);
                     static::convertXmlObjToArr($node, $arr[$index][$i]);
                 } else {
@@ -62,7 +62,7 @@ class XMLResponse implements RestfulResponseInterface
             }
 
             $attributes = $node->attributes();
-            if ( count($attributes) > 0 ) {
+            if (count($attributes) > 0) {
                 $arr[$index]['@attributes'] = array();
                 foreach ($attributes as $attr_name => $attr_value) {
                     $attr_index = strtolower(trim((string) $attr_name));
@@ -72,7 +72,7 @@ class XMLResponse implements RestfulResponseInterface
 
             $executed = true;
         }
-        if ( !$executed && $children->getName() == "" ) {
+        if (!$executed && $children->getName() == "") {
             settype($obj, 'String');
             $arr = $obj;
         }

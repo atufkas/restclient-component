@@ -16,5 +16,5 @@ interface ClientInterface
      * @param  array  $headers
      * @return mixed
      */
-    public function request($methodName,$url,array $params=array(),array $headers=array());
+    public function request($methodName, $url, array $params=array(), array $headers=array());
 }

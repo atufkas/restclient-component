@@ -1,4 +1,6 @@
 <?php
+namespace Sonrisa\Test\Component\RestfulClient;
+
 /*
  * Author: Matthias Lienau <matthias@mlienau.de>
  *
@@ -40,21 +42,20 @@ class CURLClientExtraTest extends \PHPUnit_Framework_TestCase
         $params = array();
         $headers = $this->headers;
 
-        $response = $this->client->request($methodName,$url,$params,$headers);
+        $response = $this->client->request($methodName, $url, $params, $headers);
 
         // Assert that current request response actually returns "application/json"
         // as Content-Type (otherweise adjust testing endpoint!)
-        $ctParts = explode(';',$response[ 'headers' ][ 'Content-Type' ]);
-        $this->assertEquals('application/json',trim($ctParts[ 0 ]));
+        $ctParts = explode(';', $response[ 'headers' ][ 'Content-Type' ]);
+        $this->assertEquals('application/json', trim($ctParts[ 0 ]));
 
         // Assert that JSON is correctly pre-parsed into array
-        $this->assertArrayHasKey('foo',$response[ 'response' ]);
-        $this->assertArrayHasKey('bar',$response[ 'response' ]);
-
+        $this->assertArrayHasKey('foo', $response[ 'response' ]);
+        $this->assertArrayHasKey('bar', $response[ 'response' ]);
     }
 
     public function tearDown()
     {
-        $this->client = NULL;
+        $this->client = null;
     }
 }

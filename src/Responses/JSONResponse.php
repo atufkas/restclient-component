@@ -19,7 +19,7 @@ class JSONResponse implements RestfulResponseInterface
      */
     public static function convert($response)
     {
-        $array = json_decode($response,true);
+        $array = json_decode($response, true);
 
         switch (json_last_error()) {
             case JSON_ERROR_DEPTH:

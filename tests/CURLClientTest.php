@@ -1,4 +1,6 @@
 <?php
+namespace Sonrisa\Test\Component\RestfulClient;
+
 /*
  * Author: Nil Portugués Calderó <contact@nilportugues.com>
  *
@@ -29,7 +31,7 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
         $headers = $this->headers;
 
         $this->setExpectedException('\Sonrisa\Component\RestfulClient\Exceptions\RestfulClientException');
-        $this->client->request($methodName,$url,$params,$headers);
+        $this->client->request($methodName, $url, $params, $headers);
     }
 
     public function testValidGETRequest()
@@ -39,11 +41,11 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
         $params = array('count'=>2 );
         $headers = $this->headers;
 
-        $response = $this->client->request($methodName,$url,$params,$headers);
+        $response = $this->client->request($methodName, $url, $params, $headers);
 
 
-        $this->assertArrayHasKey('Protocol',$response['headers']);
-        $this->assertArrayHasKey('Status',$response['headers']);
+        $this->assertArrayHasKey('Protocol', $response['headers']);
+        $this->assertArrayHasKey('Status', $response['headers']);
     }
 
     public function testValidPOSTRequest()
@@ -53,10 +55,10 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
-        $response = $this->client->request($methodName,$url,$params,$headers);
+        $response = $this->client->request($methodName, $url, $params, $headers);
 
-        $this->assertArrayHasKey('Protocol',$response['headers']);
-        $this->assertArrayHasKey('Status',$response['headers']);
+        $this->assertArrayHasKey('Protocol', $response['headers']);
+        $this->assertArrayHasKey('Status', $response['headers']);
     }
 
     public function testValidPUTRequest()
@@ -66,10 +68,10 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
-        $response = $this->client->request($methodName,$url,$params,$headers);
+        $response = $this->client->request($methodName, $url, $params, $headers);
 
-        $this->assertArrayHasKey('Protocol',$response['headers']);
-        $this->assertArrayHasKey('Status',$response['headers']);
+        $this->assertArrayHasKey('Protocol', $response['headers']);
+        $this->assertArrayHasKey('Status', $response['headers']);
     }
 
     public function testValidPATCHRequest()
@@ -79,10 +81,10 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
-        $response = $this->client->request($methodName,$url,$params,$headers);
+        $response = $this->client->request($methodName, $url, $params, $headers);
 
-        $this->assertArrayHasKey('Protocol',$response['headers']);
-        $this->assertArrayHasKey('Status',$response['headers']);
+        $this->assertArrayHasKey('Protocol', $response['headers']);
+        $this->assertArrayHasKey('Status', $response['headers']);
     }
 
     public function testValidDELETERequest()
@@ -92,10 +94,10 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
-        $response = $this->client->request($methodName,$url,$params,$headers);
+        $response = $this->client->request($methodName, $url, $params, $headers);
 
-        $this->assertArrayHasKey('Protocol',$response['headers']);
-        $this->assertArrayHasKey('Status',$response['headers']);
+        $this->assertArrayHasKey('Protocol', $response['headers']);
+        $this->assertArrayHasKey('Status', $response['headers']);
     }
 
     public function testValidHEADRequest()
@@ -105,11 +107,11 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
-        $response = $this->client->request($methodName,$url,$params,$headers);
+        $response = $this->client->request($methodName, $url, $params, $headers);
 
 
-        $this->assertArrayHasKey('Protocol',$response['headers']);
-        $this->assertArrayHasKey('Status',$response['headers']);
+        $this->assertArrayHasKey('Protocol', $response['headers']);
+        $this->assertArrayHasKey('Status', $response['headers']);
     }
 
     public function testValidOPTIONSRequest()
@@ -119,10 +121,10 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
-        $response = $this->client->request($methodName,$url,$params,$headers);
+        $response = $this->client->request($methodName, $url, $params, $headers);
 
-        $this->assertArrayHasKey('Protocol',$response['headers']);
-        $this->assertArrayHasKey('Status',$response['headers']);
+        $this->assertArrayHasKey('Protocol', $response['headers']);
+        $this->assertArrayHasKey('Status', $response['headers']);
     }
 
     public function testValidCUSTOMRequest()
@@ -132,14 +134,14 @@ class CURLClientTest extends \PHPUnit_Framework_TestCase
         $params = array( 'track' => 'twitter' );
         $headers = $this->headers;
 
-        $response = $this->client->request($methodName,$url,$params,$headers);
+        $response = $this->client->request($methodName, $url, $params, $headers);
 
-        $this->assertArrayHasKey('Protocol',$response['headers']);
-        $this->assertArrayHasKey('Status',$response['headers']);
+        $this->assertArrayHasKey('Protocol', $response['headers']);
+        $this->assertArrayHasKey('Status', $response['headers']);
     }
 
     public function tearDown()
     {
-        $this->client = NULL;
+        $this->client = null;
     }
 }

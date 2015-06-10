@@ -46,7 +46,7 @@ interface RestfulClientInterface
      * @param  string                                                                  $value
      * @return \Sonrisa\Component\RestfulClient\Interfaces\RestfulClientInterface
      */
-    public function setKey($keyName,$value);
+    public function setKey($keyName, $value);
 
     /**
      * Allows sending a request to the specified URL using HTTP's GET method.
@@ -55,7 +55,7 @@ interface RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function get($url,array $params=array());
+    public function get($url, array $params=array());
 
     /**
      * Allows sending a request to the specified URL using HTTP's POST method.
@@ -64,7 +64,7 @@ interface RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function post($url,array $params=array());
+    public function post($url, array $params=array());
 
     /**
      * Allows sending a request to the specified URL using HTTP's PUT method.
@@ -73,7 +73,7 @@ interface RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function put($url,array $params=array());
+    public function put($url, array $params=array());
 
     /**
      * Allows sending a request to the specified URL using HTTP's PATCH method.
@@ -82,7 +82,7 @@ interface RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function patch($url,array $params=array());
+    public function patch($url, array $params=array());
 
     /**
      * Allows sending a request to the specified URL using HTTP's DELETE method.
@@ -91,7 +91,7 @@ interface RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function delete($url,array $params=array());
+    public function delete($url, array $params=array());
 
     /**
      * Allows sending a request to the specified URL using HTTP's HEAD method.
@@ -100,7 +100,7 @@ interface RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function options($url,array $params=array());
+    public function options($url, array $params=array());
 
     /**
      * Allows sending a request to the specified URL using HTTP's OPTIONS method.
@@ -109,7 +109,7 @@ interface RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function head($url,array $params=array());
+    public function head($url, array $params=array());
 
     /**
      * Allows sending a request to the specified URL using a custom HTTP method.
@@ -119,5 +119,5 @@ interface RestfulClientInterface
      * @param  array  $params
      * @return mixed
      */
-    public function other($methodName,$url,array $params=array());
+    public function other($methodName, $url, array $params=array());
 }
