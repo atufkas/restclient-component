@@ -10,6 +10,12 @@ namespace Sonrisa\Component\RestfulClient\Interfaces;
 interface RestfulClientInterface
 {
     /**
+     * @param $field
+     * @param $value
+     * @return \Sonrisa\Component\RestfulClient\Interfaces\RestfulClientInterface
+     */
+    public function setHeader($field, $value);
+    /**
      * Sets the default response language.
      *
      * @param  string                                                                  $lang

@@ -9,11 +9,47 @@
 
 class RestfulClientTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var \Sonrisa\Component\RestfulClient\RestfulClient $client
+     */
     protected $client;
 
     public function setUp()
     {
         $this->client = new \Sonrisa\Component\RestfulClient\RestfulClient();
+    }
+
+    public function testSetHeader()
+    {
+        $useContentType = 'application/json; charset=utf-8';
+        $this->client->setHeader('Content-Type', $useContentType);
+
+        $reflection = new \ReflectionClass($this->client);
+        $property = $reflection->getProperty("headers");
+        $property->setAccessible(true);
+
+        $array = $property->getValue($this->client);
+        $this->assertEquals($useContentType, $array['Content-Type']);
+    }
+
+    public function testSetHeaders()
+    {
+        $headers = array(
+            'User-Agent' => 'Mozilla/5.0',
+            'Origin' => 'http://my-lovely-host:3000'
+        );
+
+        $this->client->setHeaders($headers);
+
+        $reflection = new \ReflectionClass($this->client);
+        $property = $reflection->getProperty("headers");
+        $property->setAccessible(true);
+
+        $array = $property->getValue($this->client);
+
+        foreach($headers as $key => $value) {
+            $this->assertEquals($value, $array[$key]);
+        }
     }
 
     public function testSetAcceptEncoding()
