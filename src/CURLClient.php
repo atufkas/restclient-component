@@ -72,7 +72,11 @@ class CURLClient extends AbstractClient implements ClientInterface
                 curl_setopt($this->curl, CURLOPT_ENCODING, $headers['Accept-Encoding']);
                 unset($headers['Accept-Encoding']);
             }
-            curl_setopt($this->curl, CURLOPT_HTTPHEADER, $headers);    //Sets the remaining headers.
+
+            // Prepare and set remaining header directly:
+            curl_setopt($this->curl, CURLOPT_HTTPHEADER, array_map(function($key, $value) {
+                return $key . ': ' . $value;
+            }, array_keys($headers), $headers));
 
             //Send request and retrieve the response.
             $data = curl_exec($this->curl);
