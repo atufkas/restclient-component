@@ -61,7 +61,7 @@ abstract class AbstractClient
                     //Check if is PHP serialized data
                     $errorReportingLevel = error_reporting();
                     error_reporting(0);
-                    $unserialized = @unserialize($data);
+                    $unserialized = unserialize($data);
                     if ($unserialized !== false) {
                         $data = $unserialized;
                     }
