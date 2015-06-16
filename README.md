@@ -1,4 +1,6 @@
-# [![Build Status](https://travis-ci.org/sonrisa/restclient-component.png?branch=master)](https://travis-ci.org/sonrisa/restclient-component) Restful Client Component
+[![Build Status](https://travis-ci.org/sonrisa/restclient-component.svg)](https://travis-ci.org/sonrisa/restclient-component) [![Coverage Status](https://coveralls.io/repos/sonrisa/restclient-component/badge.svg?branch=master)](https://coveralls.io/r/sonrisa/restclient-component?branch=master)  [![SensioLabsInsight](https://insight.sensiolabs.com/projects/4fcf3911-400b-4818-885f-ebefb44c82a8/mini.png)](https://insight.sensiolabs.com/projects/4fcf3911-400b-4818-885f-ebefb44c82a8) [![Latest Stable Version](https://poser.pugx.org/sonrisa/restclient-component/v/stable)](https://packagist.org/packages/sonrisa/restclient-component) [![Total Downloads](https://poser.pugx.org/sonrisa/restclient-component/downloads)](https://packagist.org/packages/sonrisa/restclient-component) [![License](https://poser.pugx.org/sonrisa/restclient-component/license)](https://packagist.org/packages/sonrisa/restclient-component) 
+
+# Restful Client Component
 
 The Restful Client Component allows communication with external APIs using an easy interface. 
 
@@ -75,22 +77,22 @@ $params = array();
 $response = $client->get($url,$params);
 
 // Send a POST Request
-$response = $client->post( $url ,$params);
+$response = $client->post($url ,$params);
 
 // Send a PUT Request
-$response = $client->put( $url ,$params);
+$response = $client->put($url ,$params);
 
 // Send a PATCH Request
-$response = $client->patch( $url ,$params);
+$response = $client->patch($url ,$params);
 
 // Send a DELETE Request
-$response = $client->delete( $url ,$params);
+$response = $client->delete($url ,$params);
 
 // Send a HEAD Request
 $response = $client->head( $url ,$params);
 
 // Send a OPTIONS Request
-$response = $client->options( $url ,$params);
+$response = $client->options($url ,$params);
 
 // Send a CUSTOM Request
 $response = $client->other('X-SonrisaCMS-Header', $url ,$params);
@@ -170,7 +172,7 @@ array(3) {
 - For file get contents, follow 301 and 302 codes and throw request again at the returned URL.
 
 ### Better testing
-- Create a better test case for PHP5.4 and above, using [PHP as a server](http://www.php.net/manual/en/features.commandline.webserver.php) waiting for requests and returning responses.
+- Create a better test case using [PHP as a server](http://www.php.net/manual/en/features.commandline.webserver.php) waiting for requests and returning responses.
 - Testing for multipart/data both for curl and file_get_contents based client classes.
 
 <a name="block5"></a>

@@ -93,7 +93,7 @@ class CURLClient extends AbstractClient implements ClientInterface
             }
 
             // Prepare and set remaining header directly:
-            curl_setopt($this->curl, CURLOPT_HTTPHEADER, array_map(function($key, $value) {
+            curl_setopt($this->curl, CURLOPT_HTTPHEADER, array_map(function ($key, $value) {
                 return $key . ': ' . $value;
             }, array_keys($headers), $headers));
 

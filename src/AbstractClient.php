@@ -44,8 +44,6 @@ abstract class AbstractClient
                         $status = explode(' ', $data['headers']['Status']);
                         $data['headers']['Status'] = $status[0];
                     }
-
-                    return $data;
                     break;
 
                 case 'application/xml':
@@ -56,25 +54,21 @@ abstract class AbstractClient
                         $status = explode(' ', $data['headers']['Status']);
                         $data['headers']['Status'] = $status[0];
                     }
-
-                    return $data;
                     break;
 
                 default:
 
                     //Check if is PHP serialized data
-                    $unserialized = @unserialize($data);
+                    $errorReportingLevel = error_reporting();
+                    error_reporting(0);
+                    $unserialized = unserialize($data);
                     if ($unserialized !== false) {
-                        return $unserialized;
+                        $data = $unserialized;
                     }
-                    //Or return RAW data.
-                    else {
-                        return $data;
-                    }
+                    error_reporting($errorReportingLevel);
                     break;
             }
-        } else {
-            return $data;
         }
+        return $data;
     }
 }
