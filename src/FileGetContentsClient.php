@@ -49,9 +49,23 @@ class FileGetContentsClient extends AbstractClient implements ClientInterface
                     $headers['Content-Type'] = 'application/x-www-form-urlencoded';
                 }
 
+                $ctParts = explode(';', $headers[ 'Content-Type' ]);
+                $contentType = trim($ctParts[ 0 ]);
+
+                switch ($contentType) {
+                    case 'application/x-www-form-urlencoded':
+                    default:
+                        $postContent = http_build_query($params);
+                        break;
+                    case 'application/json':
+                        $postContent = json_encode($params);
+                        break;
+                    // TODO: Add support for "raw" body formats?
+                }
+
                 $request = array(
                     'ignore_errors' => true,
-                    'content'   => http_build_query($params),
+                    'content'   => $postContent,
                     'method'    => $methodName,
                     'header'    => $this->buildHeader($headers),
                 );
