@@ -52,8 +52,27 @@ class CURLClient extends AbstractClient implements ClientInterface
                 $url = $url . "?" . http_build_query($params);
                 curl_setopt($this->curl, CURLOPT_URL, $url);
             } elseif ($methodName == 'POST') {
+
+                $contentType = null;
+
+                if (isset($headers[ 'Content-Type' ])) {
+                    $ctParts = explode(';', $headers[ 'Content-Type' ]);
+                    $contentType = trim($ctParts[ 0 ]);
+                }
+
+                switch ($contentType) {
+                    case 'application/x-www-form-urlencoded':
+                    default:
+                        $postContent = http_build_query($params);
+                        break;
+                    case 'application/json':
+                        $postContent = json_encode($params);
+                        break;
+                    // TODO: Add support for "raw" body formats?
+                }
+
                 curl_setopt($this->curl, CURLOPT_URL, $url);
-                curl_setopt($this->curl, CURLOPT_POSTFIELDS, http_build_query($params));
+                curl_setopt($this->curl, CURLOPT_POSTFIELDS, $postContent);
                 curl_setopt($this->curl, CURLOPT_POST, true);
             } elseif ($methodName == 'PUT') {
                 curl_setopt($this->curl, CURLOPT_URL, $url);
