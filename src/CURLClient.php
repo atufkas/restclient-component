@@ -68,7 +68,6 @@ class CURLClient extends AbstractClient implements ClientInterface
                     case 'application/json':
                         $postContent = json_encode($params);
                         break;
-                    // TODO: Add support for "raw" body formats?
                 }
 
                 curl_setopt($this->curl, CURLOPT_URL, $url);
