@@ -60,7 +60,6 @@ class FileGetContentsClient extends AbstractClient implements ClientInterface
                     case 'application/json':
                         $postContent = json_encode($params);
                         break;
-                    // TODO: Add support for "raw" body formats?
                 }
 
                 $request = array(
