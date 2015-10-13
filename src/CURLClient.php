@@ -51,7 +51,7 @@ class CURLClient extends AbstractClient implements ClientInterface
             if ($methodName == 'GET') {
                 $url = $url . "?" . http_build_query($params);
                 curl_setopt($this->curl, CURLOPT_URL, $url);
-            } elseif ($methodName == 'POST') {
+            } else {
 
                 $contentType = null;
 
@@ -72,12 +72,14 @@ class CURLClient extends AbstractClient implements ClientInterface
 
                 curl_setopt($this->curl, CURLOPT_URL, $url);
                 curl_setopt($this->curl, CURLOPT_POSTFIELDS, $postContent);
-                curl_setopt($this->curl, CURLOPT_POST, true);
-            } elseif ($methodName == 'PUT') {
-                curl_setopt($this->curl, CURLOPT_URL, $url);
-            } else {
+                // Always set method as passed in $methodName - so we don't need shortcuts like CURLOPT_POST
                 curl_setopt($this->curl, CURLOPT_CUSTOMREQUEST, $methodName);
-                curl_setopt($this->curl, CURLOPT_HTTPHEADER, array("X-HTTP-Method-Override: {$methodName}"));
+
+                if (! in_array($methodName, array('GET', 'POST'))) {
+                    // As default as X-HHTP-Method-Overide header for http verbs other than GET and POST
+                    // so that APIs behind a permissive firewall have a chance to detect request method:
+                    curl_setopt($this->curl, CURLOPT_HTTPHEADER, array("X-HTTP-Method-Override: {$methodName}"));
+                }
             }
 
             //Prepare headers and related config.
