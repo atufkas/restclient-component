@@ -7,7 +7,8 @@
  */
 namespace Sonrisa\Component\RestfulClient;
 
-use Sonrisa\Component\RestfulClient\Interfaces\ClientInterface as ClientInterface;
+use Sonrisa\Component\RestfulClient\Exceptions\RestfulClientException;
+use Sonrisa\Component\RestfulClient\Interfaces\ClientInterface;
 
 class CURLClient extends AbstractClient implements ClientInterface
 {
@@ -33,6 +34,16 @@ class CURLClient extends AbstractClient implements ClientInterface
         curl_setopt($this->curl, CURLOPT_HEADER, true);
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);   // return transfer instead of outputting .
         curl_setopt($this->curl, CURLINFO_HEADER_OUT, true);
+    }
+
+    /**
+     * Set timeout for request.
+     * @return ClientInterface
+     */
+    public function setTimeout($timeout)
+    {
+        curl_setopt($this->curl, CURLOPT_TIMEOUT, $timeout);
+        return $this;
     }
 
     /**
@@ -100,6 +111,13 @@ class CURLClient extends AbstractClient implements ClientInterface
 
             //Send request and retrieve the response.
             $data = curl_exec($this->curl);
+
+            // Turn any kind of curl errors into exceptions
+            if (curl_errno($this->curl)) {
+                throw new RestfulClientException(sprintf('curl error %s: "%s"',
+                    curl_errno($this->curl), curl_error($this->curl)));
+            }
+
             $data = explode("\r\n", $data);
 
             //Reads the response HTTP header and returns its contents in an array.
