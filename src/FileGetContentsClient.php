@@ -7,10 +7,23 @@
  */
 namespace Sonrisa\Component\RestfulClient;
 
-use Sonrisa\Component\RestfulClient\Interfaces\ClientInterface as ClientInterface;
+
+use Sonrisa\Component\RestfulClient\Interfaces\ClientInterface;
 
 class FileGetContentsClient extends AbstractClient implements ClientInterface
 {
+
+    /**
+     * Set timeout for request.
+     * @return ClientInterface
+     */
+    public function setTimeout($timeout)
+    {
+        // TODO: Implement, maybe we should throw an exception like this?
+        // throw new RestfulClientException('Sorry, setTimeout() is currently only implemented for curl but not for stream context based clients!');
+        return $this;
+    }
+
     /**
      * @param  string                            $methodName
      * @param  string                            $url

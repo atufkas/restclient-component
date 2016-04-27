@@ -17,4 +17,10 @@ interface ClientInterface
      * @return mixed
      */
     public function request($methodName, $url, array $params=array(), array $headers=array());
+
+    /**
+     * @param int $timeout
+     * @return RestfulClientInterface
+     */
+    public function setTimeout($timeout);
 }

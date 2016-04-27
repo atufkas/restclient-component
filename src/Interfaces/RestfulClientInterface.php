@@ -10,6 +10,12 @@ namespace Sonrisa\Component\RestfulClient\Interfaces;
 interface RestfulClientInterface
 {
     /**
+     * @param int $timeout
+     * @return mixed
+     * @return \Sonrisa\Component\RestfulClient\Interfaces\RestfulClientInterface
+     */
+    public function setTimeout($timeout);
+    /**
      * @param $field
      * @param $value
      * @return \Sonrisa\Component\RestfulClient\Interfaces\RestfulClientInterface

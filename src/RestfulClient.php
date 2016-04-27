@@ -180,6 +180,19 @@ class RestfulClient implements RestfulClientInterface
     }
 
     /**
+     * (Optional) Set the timeout value for requests.
+     *
+     * @param int $timeout
+     * @return RestfulClient
+     */
+    public function setTimeout($timeout)
+    {
+        $this->client->setTimeout($timeout);
+
+        return $this;
+    }
+
+    /**
      * Allows sending a request to the specified URL using HTTP's GET method.
      *
      * @param  string $url
