@@ -193,6 +193,18 @@ class RestfulClient implements RestfulClientInterface
     }
 
     /**
+     * Set any arbitrary CURL option via curl_setopt (applies for CURL clients only).
+     * @param $curlOptName
+     * @param $curlOptValue
+     */
+    public function setCurlOpt($curlOptName, $curlOptValue)
+    {
+        if ($this->client instanceof CURLClient) {
+            $this->client->setOpt($curlOptName, $curlOptValue);
+        }
+    }
+
+    /**
      * Allows sending a request to the specified URL using HTTP's GET method.
      *
      * @param  string $url

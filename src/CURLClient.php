@@ -37,6 +37,16 @@ class CURLClient extends AbstractClient implements ClientInterface
     }
 
     /**
+     * Set any arbitrary CURL option via curl_setopt.
+     * @param $curlOptName
+     * @param $curlOptValue
+     */
+    public function setOpt($curlOptName, $curlOptValue)
+    {
+        return curl_setopt($this->curl, $curlOptName, $curlOptValue);
+    }
+
+    /**
      * Set timeout for request.
      * @return ClientInterface
      */
