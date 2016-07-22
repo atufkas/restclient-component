@@ -202,6 +202,8 @@ class RestfulClient implements RestfulClientInterface
         if ($this->client instanceof CURLClient) {
             $this->client->setOpt($curlOptName, $curlOptValue);
         }
+        
+        return $this;
     }
 
     /**
