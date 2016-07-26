@@ -41,6 +41,12 @@ Add the following to your `composer.json` file :
 - $this->head($url,array $params=array());
 - $this->other($methodName,$url,array $params=array());
 
+CURL client only methods:
+
+- $this->setTimeout($timeout);
+- $this->setCurlOpt($name,$value);
+
+
 <a name="block3"></a>
 ## 3. Usage
 Usage is really straight-forward. Example provided below.
