@@ -22,8 +22,6 @@ class CURLClient extends AbstractClient implements ClientInterface
         //Set CURL basic fields.
         $this->curl = curl_init();
 
-        $cookie = tempnam("/tmp", "CURLCOOKIE");
-        curl_setopt($this->curl, CURLOPT_COOKIEJAR, $cookie);    //Allows cookies.
         curl_setopt($this->curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
         curl_setopt($this->curl, CURLOPT_FOLLOWLOCATION, true);
 
